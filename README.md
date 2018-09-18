@@ -23,6 +23,8 @@
 
 - 也可以选择 基于Press.One 和现有的渲染器开发 [应用](https://github.com/albertschr/awesome_pressone/tree/master/applications) 。
 
+- (「合约」)[https://github.com/albertschr/awesome_pressone/tree/master/contracts] 也是 Press.One 中的重要组成部分，撰写合约，上架 Press.One 合约商店，赚取 P1 代币。
+
 - 在开发的过程中，官方文档和 [我们的文档](https://github.com/albertschr/awesome_pressone/tree/master/docs) 都可以参考，同时欢迎补充！~
 
 如果是你自己的代码仓库，请通过 Pull Request 告知我们你仓库的链接，审核之后会将链接放在文档中：D。

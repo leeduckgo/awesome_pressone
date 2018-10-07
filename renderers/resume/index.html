@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Resume Render</title>
+        <script type="text/javascript" src="js/vue.min.js"></script>
+        <script src="js/axios.min.js"></script>
+        <script src="js/js.cookie.js"></script>
+        <script src="js/FileSaver.min.js"></script>
+        <script src="js/marked.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="css/resume.css" >
+    </head>
+    <body>
+        <div id="resume_render">
+            <div v-html="md_data"></div>
+        </div>
+        <script>
+            /*
+            var xmlhttp;
+            if (window.XMLHttpRequest)
+            {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+            }
+            else
+            {// code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange=function()
+            {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                {
+                    alert(xmlhttp.responseText)
+                }
+            }
+            xmlhttp.open("GET","/resume_example.md",true);
+            xmlhttp.send();
+            */
+        var resume_render=new Vue({
+            el:'#resume_render',
+            data:{
+                md_data:""
+            },
+            methods:{
+                get_md_context:function()
+                {
+                    axios({
+                            method:'get',
+                            url:'/resume_example.md',
+                            headers:
+                            {
+                                'Content-Type': 'application/x-www-form-urlencoded',
+                            }                             
+                            })
+                            .then(function(response){
+                                resume_render.md_data=marked(response["data"]);
+                            })
+                            .catch(function(error){
+                            })
+                }
+
+            }
+        })
+        resume_render.get_md_context();
+        
+        </script>
+    </body>
+</html>
